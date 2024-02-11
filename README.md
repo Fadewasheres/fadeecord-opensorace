@@ -30,9 +30,9 @@ https://discord.gg/abW57VSqz4
 
 <a href="https://star-history.com/#Fadecord/Fadecord&Timeline">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Fadecord/Fadecord&type=Timeline&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Fadecord/Fadecord&type=Timeline" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Fadecord/Fadecord&type=Timeline" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Fadewasheres/fadeecord-opensorace&type=Timeline&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Fadewasheres/fadeecord-opensorace&type=Timeline" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Fadewasheres/fadeecord-opensorace&type=Timeline" />
   </picture>
 </a>
 
