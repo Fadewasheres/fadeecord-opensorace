@@ -43,7 +43,7 @@ Mentioning it does not imply any affiliation with or endorsement by Discord Inc.
 Vencord is not connected to Fadecord and as such, all donation links go to Vendicated's donation link.
 
 <details>
-<summary>Using Fadecord (Vencord+) violates Discord's terms of service</summary>
+<summary>Using Fadecord violates Discord's terms of service</summary>
 
 Client modifications are against Discord’s Terms of Service.
 
