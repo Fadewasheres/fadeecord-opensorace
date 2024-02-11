@@ -16,7 +16,6 @@ An upcomming Client Modification!
 -   Privacy friendly, blocks Discord analytics & crash reporting out of the box and has no telemetry
 -   Maintained very actively, broken plugins are usually fixed within 12 hours
 -   Able to update inside of Fadecord through the update tab.
--   Same supporter badges as on Vencord (Don't lose your benefits)
 -   Easy to install third-party plugins through the plugin page in Discord.
 -   Request for plugins from Discord.
 
@@ -40,7 +39,6 @@ https://discord.gg/abW57VSqz4
 
 Discord is trademark of Discord Inc. and solely mentioned for the sake of descriptivity.
 Mentioning it does not imply any affiliation with or endorsement by Discord Inc.
-Vencord is not connected to Fadecord and as such, all donation links go to Vendicated's donation link.
 
 <details>
 <summary>Using Fadecord violates Discord's terms of service</summary>
