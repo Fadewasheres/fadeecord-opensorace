@@ -19,7 +19,7 @@ let data = {
 const settings = definePluginSettings({
     preferNitro: {
         description:
-            "Which avatar to use if both default animated (Nitro) pfp and FadePFP avatars are present",
+            "Which avatar to use if both default animated (Nitro) pfp and FadePFP avatars are present fr",
         type: OptionType.SELECT,
         options: [
             { label: "FadePFP", value: false },
