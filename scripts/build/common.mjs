@@ -39,7 +39,7 @@ export const updaterDisabled = JSON.stringify(process.argv.includes("--disable-u
 export const gitHash = process.env.VENCORD_HASH || execSync("git rev-parse --short HEAD", { encoding: "utf-8" }).trim();
 export const banner = {
     js: `
-// Vencord ${gitHash}
+// Vencord $
 // Standalone: ${isStandalone}
 // Platform: ${isStandalone === "false" ? process.platform : "Universal"}
 // Updater disabled: ${updaterDisabled}
@@ -127,7 +127,7 @@ export const gitHashPlugin = {
             namespace: "git-hash", path: args.path
         }));
         build.onLoad({ filter, namespace: "git-hash" }, () => ({
-            contents: `export default "${gitHash}"`
+            contents: `export default "$"`
         }));
     }
 };

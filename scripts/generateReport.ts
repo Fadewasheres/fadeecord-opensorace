@@ -281,7 +281,7 @@ function runTime(token: string) {
 
         // Monkey patch Logger to not log with custom css
         // @ts-ignore
-        Vencord.Util.Logger.prototype._log = function (level, levelColor, args) {
+        Vencord.Util.Logger.prototype._log = function (level, args) {
             if (level === "warn" || level === "error")
                 console[level]("[Vencord]", this.name + ":", ...args);
         };
@@ -428,11 +428,10 @@ function runTime(token: string) {
 
                 if (searchType === "findComponent") method = "find";
                 if (searchType === "findExportedComponent") method = "findByProps";
-                if (searchType === "waitFor" || searchType === "waitForComponent") {
+                if (searchType === "waitFor" || searchType === "waitForComponent" || searchType === "waitForStore") {
                     if (typeof args[0] === "string") method = "findByProps";
                     else method = "find";
                 }
-                if (searchType === "waitForStore") method = "findStore";
 
                 try {
                     let result: any;
