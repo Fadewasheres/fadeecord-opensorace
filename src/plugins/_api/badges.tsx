@@ -28,10 +28,10 @@ import { closeModal, Modals, openModal } from "@utils/modal";
 import definePlugin from "@utils/types";
 import { Forms, Toasts } from "@webpack/common";
 
-const CONTRIBUTOR_BADGE = "https://www.fadecord.online/Fadecord_files/logo-nav-oneko-padding.png";
+const CONTRIBUTOR_BADGE = "https://i.ibb.co/RHqhhVG/Untitled-design-83-removebg-preview.png";
 
 const ContributorBadge: ProfileBadge = {
-    description: "Fadecord Plugin Helpers",
+    description: "Vencord/Fadecord Contributor",
     image: CONTRIBUTOR_BADGE,
     position: BadgePosition.START,
     props: {
@@ -41,7 +41,7 @@ const ContributorBadge: ProfileBadge = {
         }
     },
     shouldShow: ({ user }) => isPluginDev(user.id),
-    link: "https://paypal.me/tjaiming"
+    link: "https://paypal.me/TjAiming"
 };
 
 let DonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
@@ -57,7 +57,7 @@ async function loadBadges(noCache = false) {
     const one = await fetch("https://badges.fadecord.online/badges.json", init)
         .then(r => r.json());
 
-    const two = await fetch("https://badges.fadecord.online/badges.json", init)
+    const two = await fetch("https://raw.githubusercontent.com/Fadecord/Ignore/main/badges2.json", init)
         .then(r => r.json());
 
     DonorBadges = { ...one, ...two };
@@ -109,6 +109,7 @@ export default definePlugin({
     },
 
     async start() {
+        Vencord.Api.Badges.addBadge(ContributorBadge);
         await loadBadges();
     },
 
@@ -133,7 +134,7 @@ export default definePlugin({
                 const modalKey = openModal(props => (
                     <ErrorBoundary noop onError={() => {
                         closeModal(modalKey);
-                        VencordNative.native.openExternal("https://paypal.me/tjaim");
+                        VencordNative.native.openExternal("https://patreon.com/Fadecord");
                     }}>
                         <Modals.ModalRoot {...props}>
                             <Modals.ModalHeader>
@@ -171,7 +172,7 @@ export default definePlugin({
                                         This Badge is a special perk for Fadecord Donors
                                     </Forms.FormText>
                                     <Forms.FormText className={Margins.top20}>
-                                        Please consider supporting the development of Fadecord, Giving $1+ you can get a custom badge (In the note you put the Badge name, Icon (32x32) And userID no NSFW / 18+ content is allowed.
+                                        Please consider supporting the development of Fadecord by becoming a donor. It would mean a lot!
                                     </Forms.FormText>
                                 </div>
                             </Modals.ModalContent>
