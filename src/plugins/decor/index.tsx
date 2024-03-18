@@ -30,7 +30,6 @@ export default definePlugin({
     name: "Decor",
     description: "Create and use your own custom avatar decorations, or pick your favorite from the presets.",
     authors: [Devs.FieryFlames],
-    required: true,
     patches: [
         // Patch MediaResolver to return correct URL for Decor avatar decorations
         {
@@ -44,7 +43,7 @@ export default definePlugin({
         {
             find: "DefaultCustomizationSections",
             replacement: {
-                match: /(?<=USER_SETTINGS_AVATAR_DECORATION},"decoration"\),)/,
+                match: /(?<={user:\i},"decoration"\),)/,
                 replace: "$self.DecorSection(),"
             }
         },
@@ -73,7 +72,7 @@ export default definePlugin({
             replacement: [
                 // Add Decor avatar decoration hook to avatar decoration hook
                 {
-                    match: /(?<=TryItOut:\i,guildId:\i}\),)(?<=user:(\i).+?)/,
+                    match: /(?<=TryItOut:\i}\),)(?<=user:(\i).+?)/,
                     replace: "vcDecorAvatarDecoration=$self.useUserDecorAvatarDecoration($1),"
                 },
                 // Use added hook
@@ -133,10 +132,9 @@ export default definePlugin({
     getDecorAvatarDecorationURL({ avatarDecoration, canAnimate }: { avatarDecoration: AvatarDecoration | null; canAnimate?: boolean; }) {
         // Only Decor avatar decorations have this SKU ID
         if (avatarDecoration?.skuId === SKU_ID) {
-            const parts = avatarDecoration.asset.split("_");
-            // Remove a_ prefix if it's animated and animation is disabled
-            if (isAnimatedAvatarDecoration(avatarDecoration.asset) && !canAnimate) parts.shift();
-            return `${CDN_URL}/${parts.join("_")}.png`;
+            const url = new URL(`${CDN_URL}/${avatarDecoration.asset}.png`);
+            url.searchParams.set("animate", (!!canAnimate && isAnimatedAvatarDecoration(avatarDecoration.asset)).toString());
+            return url.toString();
         } else if (avatarDecoration?.skuId === RAW_SKU_ID) {
             return avatarDecoration.asset;
         }

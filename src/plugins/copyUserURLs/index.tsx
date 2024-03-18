@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { NavContextMenuPatchCallback } from "@api/ContextMenu";
+import { addContextMenuPatch, NavContextMenuPatchCallback, removeContextMenuPatch } from "@api/ContextMenu";
 import { LinkIcon } from "@components/Icons";
 import { Devs } from "@utils/constants";
 import definePlugin from "@utils/types";
@@ -29,7 +29,7 @@ interface UserContextProps {
     user: User;
 }
 
-const UserContextMenuPatch: NavContextMenuPatchCallback = (children, { user }: UserContextProps) => {
+const UserContextMenuPatch: NavContextMenuPatchCallback = (children, { user }: UserContextProps) => () => {
     if (!user) return;
 
     children.push(
@@ -46,7 +46,12 @@ export default definePlugin({
     name: "CopyUserURLs",
     authors: [Devs.castdrian],
     description: "Adds a 'Copy User URL' option to the user context menu.",
-    contextMenus: {
-        "user-context": UserContextMenuPatch
-    }
+
+    start() {
+        addContextMenuPatch("user-context", UserContextMenuPatch);
+    },
+
+    stop() {
+        removeContextMenuPatch("user-context", UserContextMenuPatch);
+    },
 });

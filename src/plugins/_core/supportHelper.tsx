@@ -33,8 +33,8 @@ const REMEMBER_DISMISS_KEY = "Vencord-SupportHelper-Dismiss";
 
 const AllowedChannelIds = [
     SUPPORT_CHANNEL_ID,
-    "1173659827881390160", // Fadecord > #dev
-    "1173342942858055721", // Fadecord > #support
+    "1024286218801926184", // Vencord > #bot-spam
+    "1033680203433660458", // Vencord > #v
 ];
 
 export default definePlugin({
@@ -45,7 +45,7 @@ export default definePlugin({
     dependencies: ["CommandsAPI"],
 
     commands: [{
-        name: "Fadecord-debug",
+        name: "vencord-debug",
         description: "Send Vencord Debug info",
         predicate: ctx => AllowedChannelIds.includes(ctx.channel.id),
         async execute() {

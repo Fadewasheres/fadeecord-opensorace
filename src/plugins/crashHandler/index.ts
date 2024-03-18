@@ -57,7 +57,6 @@ const settings = definePluginSettings({
 });
 
 let hasCrashedOnce = false;
-let isRecovering = false;
 let shouldAttemptRecover = true;
 
 export default definePlugin({
@@ -72,49 +71,38 @@ export default definePlugin({
         {
             find: ".Messages.ERRORS_UNEXPECTED_CRASH",
             replacement: {
-                match: /this\.setState\((.+?)\)/,
-                replace: "$self.handleCrash(this,$1);"
+                match: /(?=this\.setState\()/,
+                replace: "$self.handleCrash(this);"
             }
         }
     ],
 
-    handleCrash(_this: any, errorState: any) {
-        _this.setState(errorState);
-
-        // Already recovering, prevent error which happens more than once too fast to trigger another recover
-        if (isRecovering) return;
-        isRecovering = true;
-
+    handleCrash(_this: any) {
         // 1 ms timeout to avoid react breaking when re-rendering
         setTimeout(() => {
-            try {
-                // Prevent a crash loop with an error that could not be handled
-                if (!shouldAttemptRecover) {
-                    try {
-                        showNotification({
-                            color: "#eed202",
-                            title: "Discord has crashed!",
-                            body: "Awn :( Discord has crashed two times rapidly, not attempting to recover.",
-                            noPersist: true
-                        });
-                    } catch { }
+            if (!shouldAttemptRecover) {
+                try {
+                    showNotification({
+                        color: "#eed202",
+                        title: "Discord has crashed!",
+                        body: "Awn :( Discord has crashed two times rapidly, not attempting to recover.",
+                        noPersist: true,
+                    });
+                } catch { }
 
-                    return;
-                }
+                return;
+            }
 
-                shouldAttemptRecover = false;
-                // This is enough to avoid a crash loop
-                setTimeout(() => shouldAttemptRecover = true, 500);
-            } catch { }
+            shouldAttemptRecover = false;
+            // This is enough to avoid a crash loop
+            setTimeout(() => shouldAttemptRecover = true, 500);
 
             try {
                 if (!hasCrashedOnce) {
                     hasCrashedOnce = true;
                     maybePromptToUpdate("Uh oh, Discord has just crashed... but good news, there is a Vencord update available that might fix this issue! Would you like to update now?", true);
                 }
-            } catch { }
 
-            try {
                 if (settings.store.attemptToPreventCrashes) {
                     this.handlePreventCrash(_this);
                 }
@@ -130,7 +118,7 @@ export default definePlugin({
                 color: "#eed202",
                 title: "Discord has crashed!",
                 body: "Attempting to recover...",
-                noPersist: true
+                noPersist: true,
             });
         } catch { }
 
@@ -180,10 +168,6 @@ export default definePlugin({
                 CrashHandlerLogger.debug("Failed to navigate to home", err);
             }
         }
-
-
-        // Set isRecovering to false before setting the state to allow us to handle the next crash error correcty, in case it happens
-        setImmediate(() => isRecovering = false);
 
         try {
             _this.setState({ error: null, info: null });
