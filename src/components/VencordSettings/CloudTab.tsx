@@ -39,7 +39,9 @@ function validateUrl(url: string) {
 async function eraseAllData() {
     const res = await fetch(new URL("/v1/", getCloudUrl()), {
         method: "DELETE",
-        headers: { Authorization: await getCloudAuth() }
+        headers: new Headers({
+            Authorization: await getCloudAuth()
+        })
     });
 
     if (!res.ok) {
@@ -113,7 +115,7 @@ function CloudTab() {
     const settings = useSettings(["cloud.authenticated", "cloud.url"]);
 
     return (
-        <SettingsTab title="Vencord Cloud">
+        <SettingsTab title="Fadecord Cloud (Using Vencord Cloud System)">
             <Forms.FormSection title="Cloud Settings" className={Margins.top16}>
                 <Forms.FormText variant="text-md/normal" className={Margins.bottom20}>
                     Vencord comes with a cloud integration that adds goodies like settings sync across devices.

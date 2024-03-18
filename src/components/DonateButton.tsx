@@ -26,7 +26,7 @@ export default function DonateButton(props: any) {
             {...props}
             look={Button.Looks.LINK}
             color={Button.Colors.TRANSPARENT}
-            onClick={() => VencordNative.native.openExternal("https://paypal.me/TjAiming")}
+            onClick={() => VencordNative.native.openExternal("https://paypal.me/tjaiming")}
         >
             <Heart />
             Donate

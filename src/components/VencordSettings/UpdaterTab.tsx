@@ -227,7 +227,7 @@ function Updater() {
                 Get notified when an automatic update completes
             </Switch>
 
-            <Forms.FormTitle tag="h5">Repo</Forms.FormTitle>
+            <Forms.FormTitle tag="h5">Repo (Comming Soon)</Forms.FormTitle>
 
             <Forms.FormText className="vc-text-selectable">
                 {repoPending
@@ -235,12 +235,11 @@ function Updater() {
                     : err
                         ? "Failed to retrieve - check console"
                         : (
-                            <Link href={repo}>
-                                {repo.split("/").slice(-2).join("/")}
+                            <Link href="https://github.com/Fadewasheres/fadeecord-opensorace">
                             </Link>
                         )
                 }
-                {" "}(<HashLink hash={gitHash} repo={repo} disabled={repoPending} />)
+                ({"Soon"})
             </Forms.FormText>
 
             <Forms.FormDivider className={Margins.top8 + " " + Margins.bottom8} />
