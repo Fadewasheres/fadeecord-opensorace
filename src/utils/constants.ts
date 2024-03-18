@@ -16,8 +16,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import gitHash from "~git-hash";
+import gitRemote from "~git-remote";
+
+export {
+    gitHash,
+    gitRemote
+};
+
 export const WEBPACK_CHUNK = "webpackChunkdiscord_app";
 export const REACT_GLOBAL = "Vencord.Webpack.Common.React";
+export const VENCORD_USER_AGENT = `Vencord/${gitHash}${gitRemote ? ` (https://github.com/${gitRemote})` : ""}`;
 export const SUPPORT_CHANNEL_ID = "1173342942858055721";
 
 export interface Dev {
@@ -38,100 +47,100 @@ export const Devs = /* #__PURE__*/ Object.freeze({
         id: 0n,
     },
     Ven: {
-        name: "Vendicated",
-        id: 343383572805058560n
+        name: "Fadewasheres",
+        id: 1052339386320158780n
     },
     Arjix: {
-        name: "ArjixWasTaken",
-        id: 674710789138939916n
+        name: "Fadewas.heres",
+        id: 0n
     },
     Cyn: {
         name: "Cynosphere",
-        id: 150745989836308480n
+        id: 0n
     },
     Megu: {
         name: "Megumin",
-        id: 545581357812678656n
+        id: 0n
     },
     botato: {
         name: "botato",
-        id: 440990343899643943n
+        id: 0n
     },
-    fawn: {
-        name: "fawn",
-        id: 336678828233588736n,
+    obscurity: {
+        name: "obscurity",
+        id: 0n,
     },
     rushii: {
         name: "rushii",
-        id: 295190422244950017n
+        id: 0n
     },
     Glitch: {
         name: "Glitchy",
-        id: 269567451199569920n
+        id: 0n
     },
     Samu: {
         name: "Samu",
-        id: 702973430449832038n,
+        id: 0n,
     },
     Nyako: {
         name: "nyako",
-        id: 118437263754395652n
+        id: 0n
     },
     MaiKokain: {
         name: "Mai",
-        id: 722647978577363026n
+        id: 0n
     },
     echo: {
         name: "ECHO",
-        id: 712639419785412668n
+        id: 0n
     },
     katlyn: {
         name: "katlyn",
-        id: 250322741406859265n
+        id: 0n
     },
     nea: {
         name: "nea",
-        id: 310702108997320705n,
+        id: 0n,
     },
     Nuckyz: {
         name: "Nuckyz",
-        id: 235834946571337729n
+        id: 0n
     },
     D3SOX: {
         name: "D3SOX",
-        id: 201052085641281538n
+        id: 0n
     },
     Nickyux: {
         name: "Nickyux",
-        id: 427146305651998721n
+        id: 0n
     },
     mantikafasi: {
         name: "mantikafasi",
-        id: 287555395151593473n
+        id: 0n
     },
     Xinto: {
         name: "Xinto",
-        id: 423915768191647755n
+        id: 0n
     },
     JacobTm: {
         name: "Jacob.Tm",
-        id: 302872992097107991n
+        id: 0n
     },
     DustyAngel47: {
         name: "DustyAngel47",
-        id: 714583473804935238n
+        id: 0n
     },
     BanTheNons: {
         name: "BanTheNons",
-        id: 460478012794863637n
+        id: 0n
     },
     BigDuck: {
         name: "BigDuck",
-        id: 1024588272623681609n
+        id: 0n
     },
     AverageReactEnjoyer: {
         name: "Average React Enjoyer",
-        id: 1004904120056029256n
+        id: 0n
     },
     adryd: {
         name: "adryd",
@@ -139,27 +148,27 @@ export const Devs = /* #__PURE__*/ Object.freeze({
     },
     Tyman: {
         name: "Tyman",
-        id: 487443883127472129n
+        id: 0n
     },
     afn: {
         name: "afn",
-        id: 420043923822608384n
+        id: 0n
     },
     KraXen72: {
         name: "KraXen72",
-        id: 379304073515499530n
+        id: 0n
     },
     kemo: {
         name: "kemo",
-        id: 299693897859465228n
+        id: 0n
     },
     dzshn: {
         name: "dzshn",
-        id: 310449948011528192n
+        id: 0n
     },
     Ducko: {
         name: "Ducko",
-        id: 506482395269169153n
+        id: 0n
     },
     jewdev: {
         name: "jewdev",
@@ -278,6 +287,10 @@ export const Devs = /* #__PURE__*/ Object.freeze({
         name: "RyanCaoDev",
         id: 952235800110694471n,
     },
+    Strencher: {
+        name: "Strencher",
+        id: 415849376598982656n
+    },
     FieryFlames: {
         name: "Fiery",
         id: 890228870559698955n
@@ -360,158 +373,130 @@ export const Devs = /* #__PURE__*/ Object.freeze({
     },
     archeruwu: {
         name: "archer_uwu",
-        id: 160068695383736320n
+        id: 0n
     },
     ProffDea: {
         name: "ProffDea",
-        id: 609329952180928513n
+        id: 0n
     },
     ant0n: {
         name: "ant0n",
-        id: 145224646868860928n
+        id: 0n
     },
     nexpid: {
         name: "Nexpid",
-        id: 853550207039832084n
+        id: 0n
     },
     FoxStorm1: {
         name: "FoxStorm1",
-        id: 789872551731527690n
+        id: 0n
     },
     camila314: {
         name: "camila314",
-        id: 738592270617542716n
+        id: 0n
     },
     Wolfie: {
         name: "wolfieeeeeeee",
-        id: 347096063569559553n
+        id: 0n
     },
     ryan: {
         name: "ryan",
-        id: 479403382994632704n
+        id: 0n
     },
     thororen: {
         name: "thororen",
-        id: 848339671629299742n
+        id: 0n
     },
     F53: {
         name: "F53",
-        id: 280411966126948353n
+        id: 0n
     },
     philipbry: {
         name: "philipbry",
-        id: 554994003318276106n
+        id: 0n
     },
     MrDiamond: {
         name: "MrDiamond",
-        id: 523338295644782592n
+        id: 0n
     },
     Shalev: {
         name: "Shalev4R",
-        id: 1122950616520593428n
+        id: 0n
     },
     fres: {
         name: "fres",
-        id: 843448897737064448n
+        id: 0n
     },
     ImpishMoxxie: {
         name: "Moxxie",
-        id: 712653921692155965n
+        id: 0n
     },
     nakoyasha: {
         name: "nakoyasha",
-        id: 222069018507345921n
+        id: 0n
     },
     SimplyData: {
         name: "SimplyData",
-        id: 301494563514613762n
+        id: 0n
     },
     arHSM: {
         name: "arHSM",
-        id: 841509053422632990n
+        id: 0n
     },
     Korbo: {
         name: "Korbo",
-        id: 455856406420258827n
+        id: 0n
     },
     SaucyDuck: {
         name: "SaucyDuck",
-        id: 1004904120056029256n
+        id: 0n
     },
     Dams: {
         name: "Dams",
-        id: 769939285792653325n
+        id: 0n
     },
     maisymoe: {
         name: "maisy",
-        id: 257109471589957632n,
+        id: 0n,
     },
     GeorgeV22: {
         name: "GeorgeV22",
-        id: 261487490769092608n,
+        id: 0n,
     },
     Grzesiek11: {
         name: "Grzesiek11",
-        id: 368475654662127616n,
+        id: 0n,
     },
     KawaiianPizza: {
         name: "KawaiianPizza",
-        id: 501000986735673347n,
+        id: 0n,
     },
     Gingi: {
         name: "0xGingi",
-        id: 351859727568994314n,
+        id: 0n,
     },
     Kyuu: {
         name: "Kyuuhachi",
-        id: 236588665420251137n,
+        id: 0n,
     },
     Samwich: {
         name: "Samwich",
-        id: 976176454511509554n,
+        id: 0n,
     },
     Perny: {
         name: "Perny",
-        id: 1101508982570504244n,
+        id: 0n,
     },
     coolelectronics: {
         name: "coolelectronics",
-        id: 696392247205298207n,
+        id: 0n,
     },
     varram: {
         name: "varram",
-        id: 588937914423967766n
+        id: 0n
     },
     jaxx: {
         name: "Jaxx",
-        id: 901016640253227059n,
-    },
-    Mopi: {
-        name: "Mopi",
-        id: 1022189106614243350n
-    },
-    Av32000: {
-        name: "Av32000",
-        id: 593436735380127770n,
-    },
-    Balaclava: {
-        name: "Balaclava",
-        id: 854886148455399436n
-    },
-    Moxxie: {
-        name: "Moxxie",
-        id: 712653921692155965n,
-    },
-    Ethan: {
-        name: "Ethan",
-        id: 721717126523781240n,
-    },
-    Elvyra: {
-        name: "Elvyra",
-        id: 708275751816003615n,
-    },
-    dat_insanity: {
-        name: "dat_insanity",
         id: 0n,
     },
 } satisfies Record<string, Dev>);

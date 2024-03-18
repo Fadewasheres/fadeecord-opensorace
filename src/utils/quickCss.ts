@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { Settings, SettingsStore } from "@api/Settings";
+import { addSettingsListener, Settings } from "@api/Settings";
 import { Toasts } from "@webpack/common";
 
 import { compileUsercss } from "./themes/usercss/compiler";
@@ -110,11 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
     initThemes();
 
     toggle(Settings.useQuickCss);
-    SettingsStore.addChangeListener("useQuickCss", toggle);
+    addSettingsListener("useQuickCss", toggle);
 
-    SettingsStore.addChangeListener("themeLinks", initThemes);
-    SettingsStore.addChangeListener("enabledThemes", initThemes);
-    SettingsStore.addChangeListener("userCssVars", initThemes);
+    addSettingsListener("themeLinks", initThemes);
+    addSettingsListener("enabledThemes", initThemes);
+    addSettingsListener("userCssVars", initThemes, false);
 
     if (!IS_WEB)
         VencordNative.quickCss.addThemeChangeListener(initThemes);

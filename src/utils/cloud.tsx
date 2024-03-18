@@ -106,7 +106,7 @@ export async function authorizeCloud() {
 
             try {
                 const res = await fetch(location, {
-                    headers: { Accept: "application/json" }
+                    headers: new Headers({ Accept: "application/json" })
                 });
                 const { secret } = await res.json();
                 if (secret) {

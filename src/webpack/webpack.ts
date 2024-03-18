@@ -60,7 +60,6 @@ export const filters = {
         return m => {
             if (filter(m)) return true;
             if (!m.$$typeof) return false;
-            if (m.type && m.type.render) return filter(m.type.render); // memo + forwardRef
             if (m.type) return filter(m.type); // memos
             if (m.render) return filter(m.render); // forwardRefs
             return false;
@@ -84,8 +83,8 @@ export function _initWebpack(instance: typeof window.webpackChunkdiscord_app) {
     return true;
 }
 
-let devToolsOpen = false;
 if (IS_DEV && IS_DISCORD_DESKTOP) {
+    var devToolsOpen = false;
     // At this point in time, DiscordNative has not been exposed yet, so setImmediate is needed
     setTimeout(() => {
         DiscordNative/* just to make sure */?.window.setDevtoolsCallbacks(() => devToolsOpen = true, () => devToolsOpen = false);
@@ -476,10 +475,8 @@ export function waitFor(filter: string | string[] | FilterFn, callback: Callback
     else if (typeof filter !== "function")
         throw new Error("filter must be a string, string[] or function, got " + typeof filter);
 
-    if (cache != null) {
-        const [existing, id] = find(filter, { isIndirect: true, isWaitFor: true });
-        if (existing) return void callback(existing, id);
-    }
+    const [existing, id] = find(filter!, { isIndirect: true, isWaitFor: true });
+    if (existing) return void callback(existing, id);
 
     subscriptions.set(filter, callback);
 }

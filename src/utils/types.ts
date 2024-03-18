@@ -17,7 +17,6 @@
 */
 
 import { Command } from "@api/Commands";
-import { NavContextMenuPatchCallback } from "@api/ContextMenu";
 import { FluxEvents } from "@webpack/types";
 import { Promisable } from "type-fest";
 
@@ -116,10 +115,6 @@ export interface PluginDef {
     flux?: {
         [E in FluxEvents]?: (event: any) => void;
     };
-    /**
-     * Allows you to manipulate context menus
-     */
-    contextMenus?: Record<string, NavContextMenuPatchCallback>;
     /**
      * Allows you to add custom actions to the Vencord Toolbox.
      * The key will be used as text for the button

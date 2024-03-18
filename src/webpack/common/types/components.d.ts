@@ -35,6 +35,8 @@ export type TextProps = PropsWithChildren<HtmlHTMLAttributes<HTMLDivElement> & {
 
 export type Text = ComponentType<TextProps>;
 
+export type FocusLock = ComponentType<FocusLock>;
+
 export type FormTitle = ComponentType<HTMLProps<HTMLTitleElement> & PropsWithChildren<{
     /** default is h5 */
     tag?: Heading;
@@ -154,7 +156,7 @@ export type Switch = ComponentType<PropsWithChildren<{
 }>>;
 
 export type Timestamp = ComponentType<PropsWithChildren<{
-    timestamp: Date | Moment;
+    timestamp: Moment;
     isEdited?: boolean;
 
     className?: string;
@@ -452,8 +454,4 @@ export type Avatar = ComponentType<PropsWithChildren<{
 
     "aria-hidden"?: boolean;
     "aria-label"?: string;
-}>>;
-
-type FocusLock = ComponentType<PropsWithChildren<{
-    containerRef: RefObject<HTMLElement>;
 }>>;
