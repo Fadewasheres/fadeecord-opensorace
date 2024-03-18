@@ -1,15 +1,15 @@
 {
     "name": "vencord",
     "private": "true",
-    "version": "1.7.2",
+    "version": "1.6.7",
     "description": "The cutest Discord client mod with extras",
-    "homepage": "https://github.com/Fadecord/Fadecord#readme",
+    "homepage": "https://github.com/Fadewasheres/opensorace#readme",
     "bugs": {
-        "url": "https://github.com/Fadecord/Fadecord/issues"
+        "url": "https://github.com/Fadewasheres/opensorace/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Fadecord/Fadecord.git"
+        "url": "git+https://github.com/Fadewasheres/opensorace.git"
     },
     "license": "GPL-3.0-or-later",
     "author": "Vendicated",
